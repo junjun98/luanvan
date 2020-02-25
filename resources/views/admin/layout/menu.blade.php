@@ -153,6 +153,61 @@
                         <li><a href="admin/donvitinh/them">Thêm</a></li>
                     </ul>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Khách Hàng</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="admin/khachhang/danhsach">Danh sách</a></li>
+                        <li><a href="admin/khachhang/them">Thêm</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Nhân Viên</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="admin/nhanvien/danhsach">Danh sách</a></li>
+                        <li><a href="admin/nhanvien/them">Thêm</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Nhóm sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="admin/nhomsanpham/danhmuc">Danh sách</a></li>
+                        <li><a href="admin/nhomsanpham/themdanhmuc">Thêm</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Kho</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="admin/kho/danhsach">Danh sách</a></li>
+                        <li><a href="admin/kho/them">Thêm</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="admin/sanpham/danhmuc">Danh sách</a></li>
+                        <li><a href="admin/sanpham/themdanhmuc">Thêm</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end-->

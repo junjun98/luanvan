@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin','AdminController@index');
-Route::get('admin/login', 'AdminController@login');
-Route::get('admin/createaccount', 'AdminController@createaccount');
+Route::get('admin',['as'=> 'admin', 'uses'=>'AdminController@index']);
+Route::get('login', ['as'=> 'login', 'uses'=>'AdminController@login']);
+Route::get('logout', ['as'=> 'logout', 'uses'=>'AdminController@logout']);
+Route::post('login', ['as'=> 'login', 'uses'=>'AdminController@postlogin']);
+Route::get('dangky', 'AdminController@dangky');
+Route::post('dangky', ['as'=> 'dangky', 'uses'=>'AdminController@postdangky']);
 
 Route::group(['prefix'=>'admin'],function()
 {

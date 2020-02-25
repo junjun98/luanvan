@@ -41,14 +41,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="log-w3">
 		<div class="w3layouts-main">
 			<h2>Đăng nhập</h2>
-			<form action="admin.layout.login" method="post">
-				<input type="email" class="ggg" name="Email" placeholder="E-MAIL" required="">
-				<input type="password" class="ggg" name="Password" placeholder="PASSWORD" required="">
+			@if(Session::has('flag'))
+		    <div class="alert alert-{{Session::get('flag')}}"> 
+		      {{Session::get('thongbao')}}
+		    </div>
+		    @endif
+			<form action="{{route('login')}}" method="post">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+				<input type="text" class="ggg" name="username" placeholder="E-MAIL" required="">
+				<input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
 				<span><input type="checkbox"> Nhớ mật khẩu</span>
 				<h6><a href="#"> Quên mật khẩu? </a></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng Nhập" name="login">
 			</form>
+			@if(Auth::check())
+				{{$tochuc->tentc}}
+			@endif
 			<p>Quên tài khoản?<a href="registration.html">Tạo tài khoản</a></p>
 		</div>
 	</div>

@@ -20,6 +20,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
+		
+    	$("div.alert").delay(3000).slideUp();
 	</script>
     <!-- bootstrap-css -->
     <base href="{{asset('')}}">
@@ -40,14 +42,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<div class="log-w3">
 		<div class="w3layouts-main">
+			@if(count($errors)>0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $err)
+                {{$err}} <br>
+                @endforeach
+            </div>
+            @endif
+
+            @if(Session::has('thongbao'))
+			<div class="alert alert-success">
+				{{Session::get('thongbao')}}
+			</div>
+			@endif
 			<h2>Tạo Tài Khoản</h2>
-			<form action="admin.layout.login" method="post">
-                Số Điện Thoại: <input type="text" class="ggg" name="sdt" placeholder="Số Điện Thoại" required="">
-                Password: <input type="password" class="ggg" name="password" placeholder="password" required="">
-				Nhập lại password: <input type="password" class="ggg" name="Password" placeholder="Nhập lại password" required="">
+			<form action="{{route('dangky')}}" method="post" enctype="multipart/form-data">
+				{{csrf_field()}}
+                Số Điện Thoại: <input type="text" class="ggg" name="sdt" placeholder="Số Điện Thoại" >
+                Password: <input type="text" class="ggg" name="password" placeholder="password" >
+				Nhập lại password: <input type="password" class="ggg" name="re_password" placeholder="Nhập lại password">
 				<!-- <span><input type="checkbox"> Nhớ mật khẩu</span>
 				<h6><a href="#"> Quên mật khẩu? </a></h6> -->
 				<div class="clearfix"></div>
+				<label>name to chuc</label>
+				<input type="" name="nametc">
+				<div class="clearfix"></div>
+				<label>name</label>
+				<input type="" name="name" placeholder="ho va ten">
+				<div class="clearfix"></div>
+				<label>address</label>
+				<input type="" name="address" placeholder="dia chi">
+				<div class="clearfix"></div>
+				<label>phone</label>
+				<input type="" name="phone" placeholder="sdt">
 				<input type="submit" value="Tạo tài khoản" name="createaccount">
 			</form>
 			<!-- <p>Quên tài khoản?<a href="registration.html">Tạo tài khoản</a></p> -->

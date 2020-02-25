@@ -60,7 +60,7 @@
                 <td>{{$ctn->idctn}}</td>
                 <td>{{$ctn->soluong}}</td>
                 <td>{{$ctn->gia}}</td>
-                <td>{{$ctn->iddvt}}</td>
+                <td>{{$ctn->donvitinh->tendvt}}</td>
                 <td>{{$ctn->idnhap}}</td>
                 <td>
                   <a href="admin/chitietnhap/sua/{{$ctn->idctn}}" class="active styling-edit" ui-toggle-class="">
