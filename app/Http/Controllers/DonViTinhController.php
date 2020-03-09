@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DonViTinh;
 use App\ToChuc;
+use App\User;
+use Auth, Hash;
 
 class DonViTinhController extends Controller
 {
@@ -17,7 +19,9 @@ class DonViTinhController extends Controller
 
 	public function getThem()
 	{
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.donvitinh.them',['tochuc' => $tochuc]);
 	}
 
@@ -48,7 +52,9 @@ class DonViTinhController extends Controller
 	public function getSua($iddvt)
     {
         $donvitinh = DonViTinh::find($iddvt);
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.donvitinh.sua',['donvitinh' => $donvitinh,'tochuc' => $tochuc]);
     }
 

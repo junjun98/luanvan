@@ -59,22 +59,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<form action="{{route('dangky')}}" method="post" enctype="multipart/form-data">
 				{{csrf_field()}}
                 Số Điện Thoại: <input type="text" class="ggg" name="sdt" placeholder="Số Điện Thoại" >
-                Password: <input type="text" class="ggg" name="password" placeholder="password" >
+                Password: <input type="password" class="ggg" name="password" placeholder="Nhập password" >
 				Nhập lại password: <input type="password" class="ggg" name="re_password" placeholder="Nhập lại password">
 				<!-- <span><input type="checkbox"> Nhớ mật khẩu</span>
 				<h6><a href="#"> Quên mật khẩu? </a></h6> -->
-				<div class="clearfix"></div>
-				<label>name to chuc</label>
-				<input type="" name="nametc">
-				<div class="clearfix"></div>
-				<label>name</label>
-				<input type="" name="name" placeholder="ho va ten">
-				<div class="clearfix"></div>
-				<label>address</label>
-				<input type="" name="address" placeholder="dia chi">
-				<div class="clearfix"></div>
-				<label>phone</label>
-				<input type="" name="phone" placeholder="sdt">
+				Tên tổ chức: <input type="text" class="ggg" name="nametc" placeholder="Nhập tên tổ chức" >
+				Email: <input type="email" class="ggg" name="email" placeholder="Nhập email" >
+				Tên người quản lý: <input type="text" class="ggg" name="name" placeholder="Nhập tên người quản lý" >
+				Địa chỉ: <input type="text" class="ggg" name="address" placeholder="Nhập địa chỉ" >
+				
+
+
 				<input type="submit" value="Tạo tài khoản" name="createaccount">
 			</form>
 			<!-- <p>Quên tài khoản?<a href="registration.html">Tạo tài khoản</a></p> -->

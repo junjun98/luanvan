@@ -64,7 +64,7 @@
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                                 <td>{{$kho->tenkho}}</td>
-                                <td>{{$kho->idtc}}</td>
+                                <td>{{$kho->tochuc->tentc}}</td>
                                 <td>{{$kho->diachi}}</td>
                                 <td>{{$kho->ghichu}}</td>
                                 <td>

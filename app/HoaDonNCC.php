@@ -20,5 +20,11 @@ class HoaDonNCC extends Model
      	return $this->belongsTo('App\NhanVien','idnv','idnv');
      }
 
+     public function khachhang()
+     {
+        return $this->belongsTo('App\KhachHang','idkh','idkh');
+     }
+
+
      
 }

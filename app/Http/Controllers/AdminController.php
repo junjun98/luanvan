@@ -45,7 +45,7 @@ class AdminController extends Controller
     	$user->sdt = $req->sdt;
     	$user->password = Hash::make($req->password);
     	$user->name = $req->name;
-    	$user->email = time()."email@gmail.com";
+    	$user->email = $req->email;
     	$user->role = "1";
     	$user->save();
 
@@ -54,25 +54,27 @@ class AdminController extends Controller
     	$tochuc->tentc = $req->nametc;
     	$tochuc->hoten = $req->name;
     	$tochuc->diachi = $req->address;
-    	$tochuc->sdt = $req->phone;
+    	$tochuc->sdt = $req->sdt;
     	$tochuc->save();
 
-    	return redirect()->back()->with('thongbao', 'tạo thành công');
+    	return redirect()->back()->with('thongbao', 'Tạo thành công');
     }
 
     public function postlogin(Request $req)
     {
     	$this->validate($req, 
             [
-                'username' => 'required|min:10',
+                'sdt' => 'required|min:10',
                 'password' => 'required|min:6|max:25',
             ]
         );
 
-        if(Auth::attempt(array('sdt' => $req->username,'password' => $req->password), false, true))
+        if(Auth::attempt(array('sdt' => $req->sdt,'password' => $req->password), false, true))
         {
             // return redirect()->back()->with(['flag'=>'success', 'thongbao'=>'Đăng nhập  thành công']);
-            return redirect()->route('admin');
+            $id = Auth::id();
+            // echo $id;
+            return redirect()->route('admin', $id);
         }
         else
         {

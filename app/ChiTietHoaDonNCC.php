@@ -19,4 +19,6 @@ class ChiTietHoaDonNCC extends Model
      {
      	return $this->hasMany('App\HoaDonNCC','idhdncc','idhdncc');
      }
+
+     
 }

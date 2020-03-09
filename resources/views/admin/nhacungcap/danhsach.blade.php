@@ -64,7 +64,7 @@
                 <td>{{$ncc->diachi}}</td>
                 <td>{{$ncc->sdt}}</td>
                 <td>{{$ncc->email}}</td>
-                <td>{{$ncc->idtc}}</td>
+                <td>{{$ncc->tochuc->tentc}}</td>
                 <td>{{$ncc->ghichu}}</td>
 
                 <td>

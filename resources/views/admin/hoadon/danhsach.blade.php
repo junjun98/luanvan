@@ -63,9 +63,9 @@
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>{{$hd->idhd}}</td>
-                <td>{{$hd->idnv}}</td>
+                <td>{{$hd->nhanvien->tennv}}</td>
                 <td>{{$hd->ngaytao}}</td>
-                <td>{{$hd->idkh}}</td>
+                <td>{{$hd->khachhang->tenkh}}</td>
                 <td>{{$hd->tongtien}}</td>
                 <td>{{$hd->giamgia}}</td>
                 <td>{{$hd->khtra}}</td>

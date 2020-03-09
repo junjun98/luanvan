@@ -8,7 +8,6 @@ class NhanVien extends Model
 {
     protected $table = "NhanVien";
     protected $primaryKey = 'idnv';
-
     public $timestamps = false;
     public $fillable = ['tennv', 'idtc', 'idtk', 'ngaysinh', 'diachi', 'sdt', 'gioitinh', 'email', 'ghichu'];
     public function users()
@@ -20,4 +19,5 @@ class NhanVien extends Model
     {
         return $this->belongsTo('App\ToChuc', 'idtc', 'idtc');
     }
+
 }

@@ -7,6 +7,8 @@ use App\NhapKho;
 use App\NhaCungCap;
 use App\ToChuc;
 use App\ChiTietNhap;
+use App\User;
+use Auth, Hash;
 
 class NhapKhoController extends Controller
 {
@@ -19,7 +21,9 @@ class NhapKhoController extends Controller
 
 	public function getThem()
 	{
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		$nhacungcap = NhaCungCap::all();
 		return view('admin.nhapkho.them',['tochuc' => $tochuc, 'nhacungcap' => $nhacungcap]);
 	}
@@ -68,7 +72,9 @@ class NhapKhoController extends Controller
     {
         $nhapkho = NhapKho::find($idnhap);
         $nhacungcap = NhaCungCap::all();
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.nhapkho.sua',['nhapkho' => $nhapkho,'nhacungcap' => $nhacungcap,'tochuc' => $tochuc]);
     }
 

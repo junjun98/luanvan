@@ -61,7 +61,7 @@
                 <td>{{$ctt->idctth}}</td>
                 <td>{{$ctt->sanpham->tensp}}</td>
                 <td>{{$ctt->soluong}}</td>
-                <td>{{$ctt->iddvt}}</td>
+                <td>{{$ctt->donvitinh->tendvt}}</td>
                 <td>{{$ctt->gia}}</td>
                 <td>{{$ctt->idth}}</td>
                 <td>

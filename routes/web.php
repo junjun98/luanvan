@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin',['as'=> 'admin', 'uses'=>'AdminController@index']);
+Route::get('admin/{id}',['as'=> 'admin', 'uses'=>'AdminController@index']);
 Route::get('login', ['as'=> 'login', 'uses'=>'AdminController@login']);
 Route::get('logout', ['as'=> 'logout', 'uses'=>'AdminController@logout']);
 Route::post('login', ['as'=> 'login', 'uses'=>'AdminController@postlogin']);
@@ -184,7 +184,11 @@ Route::group(['prefix'=>'admin'],function()
     Route::group(['prefix'=>'nhanvien'],function()
 	{
 		Route::get('danhsach','NhanVienController@getDanhSach');
-		Route::get('them','NhanVienController@getThem');
+		Route::get('them', [
+			'as' => 'them',
+			'uses' => 'NhanVienController@getThem'
+		]);
+		// Route::get('them/{id}','NhanVienController@getThem');
 		Route::post('them','NhanVienController@postThem');
 		Route::get('sua/{idnv}','NhanVienController@getSua');
 		Route::post('sua/{idnv}','NhanVienController@postSua');

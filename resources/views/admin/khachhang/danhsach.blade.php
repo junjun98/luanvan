@@ -15,7 +15,7 @@
                             <option value="2">Sửa lựa chọn</option>
                             <option value="3">Xuất</option>
                         </select>
-                        <button class="btn btn-sm btn-default">Thục hiện</button>
+                        <button class="btn btn-sm btn-default">Thực hiện</button>
                     </div>
 
                     <div class="col-sm-4">
@@ -52,7 +52,6 @@
                                 <th>Giới tính</th>
                                 <th>Email</th>
                                 <th>Tên tổ chức</th>
-                                <th>Tên tài khoản</th>
                                 <th>Ghi chú</th>
                                 <th style="width:30px;"></th>
                             </tr>
@@ -67,8 +66,7 @@
                                 <td>{{$kh->sdt}}</td>
                                 <td>{{$kh->gioitinh}}</td>
                                 <td>{{$kh->email}}</td>
-                                <td>{{$kh->idtc}}</td>
-                                <td>{{$kh->idtk}}</td>
+                                <td>{{$kh->tochuc->tentc}}</td>
                                 <td>{{$kh->ghichu}}</td>
                                 <td>
                                     <a href="admin/khachhang/sua/{{$kh->idkh}}" class="active styling-edit" ui-toggle-class="">

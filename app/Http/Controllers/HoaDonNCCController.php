@@ -7,6 +7,8 @@ use App\HoaDonNCC;
 use App\NhanVien;
 use App\NhaCungCap;
 use App\ToChuc;
+use App\User;
+use Auth, Hash;
 
 class HoaDonNCCController extends Controller
 {
@@ -21,7 +23,9 @@ class HoaDonNCCController extends Controller
 	{
 		$nhanvien = NhanVien::all();
 		$nhacungcap = NhaCungCap::all();
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.hoadonncc.them',['nhanvien' => $nhanvien,'nhacungcap' => $nhacungcap,'tochuc' => $tochuc]);
 	}
 
@@ -85,7 +89,9 @@ class HoaDonNCCController extends Controller
         $hoadonncc = HoaDonNCC::find($idhdncc);
         $nhanvien = NhanVien::all();
         $nhacungcap = NhaCungCap::all();
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.hoadonncc.sua',['hoadonncc' => $hoadonncc,'nhanvien' => $nhanvien,'nhacungcap' => $nhacungcap,'tochuc' => $tochuc]);
     }
 

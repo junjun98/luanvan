@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\ToChuc;
 use App\NhaCungCap;
 use App\NhapKho;
-
+use App\User;
+use Auth, Hash;
 
 class NhaCungCapController extends Controller
 {
@@ -19,7 +20,9 @@ class NhaCungCapController extends Controller
 
 	public function getThem()
 	{
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.nhacungcap.them',['tochuc' => $tochuc]);
 	}
 
@@ -70,7 +73,9 @@ class NhaCungCapController extends Controller
 	public function getSua($idncc)
     {
         $nhacungcap = NhaCungCap::find($idncc);
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.nhacungcap.sua',['nhacungcap' => $nhacungcap, 'tochuc' => $tochuc]);
     }
 

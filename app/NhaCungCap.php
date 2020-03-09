@@ -12,11 +12,13 @@ class NhaCungCap extends Model
 
      public function tochuc()
      {
-     	return $this->hasMany('App\ToChuc','idtc','idtc');
+     	return $this->belongsTo('App\ToChuc','idtc','idtc');
      }
 
      public function nhapkho()
      {
      	return $this->hasMany('App\NhapKho','idncc','idncc');
      }
+
+     
 }

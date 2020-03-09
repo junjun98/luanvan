@@ -11,8 +11,9 @@ class Kho extends Model
 
     public $timestamps = false;
     public $fillable = ['tenkho', 'idtc', 'diachi', 'ghichu'];
+
     public function tochuc()
     {
-        return $this->hasMany('App\ToChuc', 'idtc', 'idtc');
+        return $this->belongsTo('App\ToChuc', 'idtc', 'idtc');
     }
 }

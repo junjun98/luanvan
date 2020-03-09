@@ -7,6 +7,8 @@ use App\HoaDon;
 use App\ToChuc;
 use App\NhanVien;
 use App\KhachHang;
+use App\User;
+use Auth, Hash;
 
 class HoaDonController extends Controller
 {
@@ -22,7 +24,9 @@ class HoaDonController extends Controller
 	{
 		$nhanvien = NhanVien::all();
 		$khachhang = KhachHang::all();
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.hoadon.them',['nhanvien' => $nhanvien,'khachhang' => $khachhang,'tochuc' => $tochuc]);
 	}
 
@@ -86,7 +90,9 @@ class HoaDonController extends Controller
         $hoadon = HoaDon::find($idhd);
         $nhanvien = NhanVien::all();
         $khachhang = KhachHang::all();
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.hoadon.sua',['hoadon' => $hoadon,'nhanvien' => $nhanvien,'khachhang' => $khachhang,'tochuc' => $tochuc]);
     }
 

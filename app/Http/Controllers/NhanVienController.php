@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\NhanVien;
 use App\ToChuc;
 use App\User;
-
+use Auth, Hash;
 
 class NhanVienController extends Controller
 {
@@ -18,7 +18,9 @@ class NhanVienController extends Controller
 
     public function getThem()
     {
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         $user = User::all();
         return view('admin.nhanvien.them', ['tochuc' => $tochuc, 'user' => $user]);
     }
@@ -54,6 +56,14 @@ class NhanVienController extends Controller
             ]
         );
 
+        $user = new User;
+        $user->sdt = $request->sdt;
+        $user->name = $request->tennv;
+        $user->email = $request->email;
+        $user->role = "0";
+        $user->password = Hash::make($request->password);
+        $user->save();
+
         $nhanvien = new NhanVien;
         $nhanvien->tennv = $request->tennv;
         $nhanvien->ngaysinh = $request->ngaysinh;
@@ -62,7 +72,7 @@ class NhanVienController extends Controller
         $nhanvien->gioitinh = $request->gioitinh;
         $nhanvien->email = $request->email;
         $nhanvien->idtc = $request->ToChuc;
-        $nhanvien->idtk = $request->User;
+        $nhanvien->iduser = $user->id;
         $nhanvien->save();
         return redirect('admin/nhanvien/danhsach')->with('thongbao', 'Thêm thành công');
     }

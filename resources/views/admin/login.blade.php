@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    @endif
 			<form action="{{route('login')}}" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-				<input type="text" class="ggg" name="username" placeholder="E-MAIL" required="">
+				<input type="text" class="ggg" name="sdt" placeholder="SỐ ĐIỆN THOẠI" required="">
 				<input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
 				<span><input type="checkbox"> Nhớ mật khẩu</span>
 				<h6><a href="#"> Quên mật khẩu? </a></h6>
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="submit" value="Đăng Nhập" name="login">
 			</form>
 			@if(Auth::check())
-				{{$tochuc->tentc}}
+				{{$tochuc->sdt}}
 			@endif
 			<p>Quên tài khoản?<a href="registration.html">Tạo tài khoản</a></p>
 		</div>

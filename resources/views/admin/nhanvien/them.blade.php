@@ -39,7 +39,7 @@
 
                                     <div class="form-group">
                                         <label>Ngày sinh</label>
-                                        <input class="form-control" name="ngaysinh">
+                                        <input class="form-control" type="date" name="ngaysinh">
                                     </div>
                                     <div class="form-group">
                                         <label>Địa chỉ</label>
@@ -68,20 +68,17 @@
 
                                     <div class="form-group">
                                         <label>Tên tổ chức</label>
-                                        <select name="ToChuc" class="form-control input-sm m-bot15">
-                                            @foreach($tochuc as $tc)
-                                            <option value="{{$tc->idtc}}">{{$tc->tentc}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="hidden" name="ToChuc" value="{{
+                                        $tochuc->idtc
+                                    }}">
+                                        <input type="text" disabled="" class="form-control" value="{{
+                                        $tochuc->tentc
+                                    }}">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Tên tài khoản</label>
-                                        <select name="User" class="form-control input-sm m-bot15">
-                                            @foreach($user as $user)
-                                            <option value="{{$user->idtk}}">{{$user->idtk}}</option>
-                                            @endforeach
-                                        </select>
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control">
                                     </div>
 
                                     <div class="form-group">

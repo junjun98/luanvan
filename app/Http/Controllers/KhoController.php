@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\ToChuc;
 use App\Kho;
+use App\User;
+use Auth, Hash;
 
 class KhoController extends Controller
 {
@@ -17,7 +19,9 @@ class KhoController extends Controller
     }
     public function getThem()
     {
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.kho.them', ['tochuc' => $tochuc]);
     }
     public function danhsach()
@@ -62,6 +66,9 @@ class KhoController extends Controller
     public function getSua($idkho)
     {
         $kho = Kho::find($idkho);
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.kho.sua', ['kho' => $kho]);
     }
 
@@ -70,16 +77,21 @@ class KhoController extends Controller
         $this->validate(
             $request,
             [
-                'tenkho' => 'min:3|max:200'
+                'tenkho' => 'min:3|max:200',
+                'ToChuc' => 'min:3|max:200'
             ],
             [
                 'tenkho.min' => 'Tên kho phải có độ dài từ 3 đến 200 ký tự',
                 'tenkho.max' => 'Tên kho phải có độ dài từ 3 đến 200 ký tự',
+
+                'ToChuc.min' => 'Tên kho phải có độ dài từ 3 đến 200 ký tự',
+                'ToChuc.max' => 'Tên kho phải có độ dài từ 3 đến 200 ký tự',
             ]
         );
 
         $kho = Kho::find($idkho);
         $kho->tenkho = $request->tenkho;
+        $kho->idtc = $request->ToChuc;
         $kho->diachi = $request->diachi;
         $kho->ghichu = $request->ghichu;
         $kho->save();

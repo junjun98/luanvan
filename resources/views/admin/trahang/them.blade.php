@@ -53,7 +53,7 @@
 
 	                                <div class="form-group">
 	                                    <label>Ngày trả</label>
-	                                    <input class="form-control" name="ngaytra" placeholder="Nhập địa chỉ tổ chức"/>
+	                                    <input class="form-control" type="date" name="ngaytra" placeholder="Nhập địa chỉ tổ chức"/>
 	                                </div>
 
 	                                <div class="form-group">
@@ -67,11 +67,12 @@
 
 	                                <div class="form-group">
 	                                    <label>Tên tổ chức</label>
-	                                    <select class="form-control" name="ToChuc">
-                                    	@foreach($tochuc as $tc)
-                                    	<option value="{{$tc->idtc}}">{{$tc->tentc}}</option>  
-                                    	@endforeach
-                                		</select>
+	                                    <input type="hidden" name="ToChuc" value="{{
+                                        $tochuc->idtc
+                                    }}">
+                                        <input type="text" disabled="" class="form-control" value="{{
+                                        $tochuc->tentc
+                                    }}">
 	                                </div>
 
 									 <div class="form-group">

@@ -63,9 +63,9 @@
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>{{$hdncc->idhdncc}}</td>
-                <td>{{$hdncc->idnv}}</td>
+                <td>{{$hdncc->nhanvien->tennv}}</td>
                 <td>{{$hdncc->ngaytao}}</td>
-                <td>{{$hdncc->idkh}}</td>
+                <td>{{$hdncc->khachhang->tenkh}}</td>
                 <td>{{$hdncc->tongtien}}</td>
                 <td>{{$hdncc->giamgia}}</td>
                 <td>{{$hdncc->sotientra}}</td>

@@ -7,6 +7,8 @@ use App\CongNoKH;
 use App\HoaDon;
 use App\NhanVien;
 use App\ToChuc;
+use App\User;
+use Auth, Hash;
 
 class CongNoKHController extends Controller
 {
@@ -21,7 +23,9 @@ class CongNoKHController extends Controller
 	{
 		$hoadon = HoaDon::all();
 		$nhanvien = NhanVien::all();
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.congnokh.them',['hoadon' => $hoadon,'nhanvien' => $nhanvien,'tochuc' => $tochuc]);
 	}
 
@@ -67,7 +71,9 @@ class CongNoKHController extends Controller
         $congnokh = CongNoKH::find($idcnkh);
         $hoadon = HoaDon::all();
         $nhanvien = NhanVien::all();
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.congnokh.sua',['donvitinh' => $donvitinh,'hoadon' => $hoadon,'nhanvien' => $nhanvien,'tochuc' => $tochuc]);
     }
 

@@ -67,20 +67,12 @@
 
                                     <div class="form-group">
                                         <label>Tên tổ chức</label>
-                                        <select name="ToChuc" class="form-control input-sm m-bot15">
-                                            @foreach($tochuc as $tc)
-                                            <option value="{{$tc->idtc}}">{{$tc->tentc}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Tên tài khoản</label>
-                                        <select name="User" class="form-control input-sm m-bot15">
-                                            @foreach($user as $user)
-                                            <option value="{{$user->idtk}}">{{$user->idtk}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="hidden" name="ToChuc" value="{{
+                                        $tochuc->idtc
+                                    }}">
+                                        <input type="text" disabled="" class="form-control" value="{{
+                                        $tochuc->tentc
+                                    }}">
                                     </div>
 
                                     <div class="form-group">

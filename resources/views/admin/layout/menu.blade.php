@@ -172,7 +172,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="admin/nhanvien/danhsach">Danh sách</a></li>
-                        <li><a href="admin/nhanvien/them">Thêm</a></li>
+                        <li><a href="{{route('them')}}">Thêm</a></li>
                     </ul>
                 </li>
 

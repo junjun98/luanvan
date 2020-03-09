@@ -7,6 +7,8 @@ use App\TraHang;
 use App\HoaDon;
 use App\NhapKho;
 use App\ToChuc;
+use App\User;
+use Auth, Hash;
 
 class TraHangController extends Controller
 {
@@ -21,7 +23,9 @@ class TraHangController extends Controller
 	{
 		$hoadon = HoaDon::all();
 		$nhapkho = NhapKho::all();
-		$tochuc = ToChuc::all();
+		$id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
 		return view('admin.trahang.them',['hoadon' => $hoadon,'nhapkho' => $nhapkho,'tochuc' => $tochuc]);
 	}
 
@@ -79,7 +83,9 @@ class TraHangController extends Controller
         $trahang = TraHang::find($idth);
         $hoadon = HoaDon::all();
         $nhapkho = NhapKho::all();
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         return view('admin.trahang.sua',['trahang' => $trahang,'hoadon' => $hoadon,'nhapkho' => $nhapkho,'tochuc' => $tochuc]);
     }
 

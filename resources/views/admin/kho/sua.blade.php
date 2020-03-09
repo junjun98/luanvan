@@ -37,6 +37,15 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Tên tổ chức</label>
+                                        <input type="hidden" name="ToChuc" value="{{
+                                        $tochuc->idtc
+                                    }}">
+                                        <input type="text" disabled="" class="form-control" value="{{
+                                        $tochuc->tentc
+                                    }}">
+
+                                    <div class="form-group">
                                         <label>Địa chỉ</label>
                                         <input class="form-control" name="diachi" value="{{$kho->diachi}}">
                                     </div>

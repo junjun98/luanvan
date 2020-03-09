@@ -18,6 +18,6 @@ class KhachHang extends Model
 
     public function tochuc()
     {
-        return $this->hasMany('App\ToChuc', 'idtc', 'idtc');
+        return $this->belongsTo('App\ToChuc', 'idtc', 'idtc');
     }
 }

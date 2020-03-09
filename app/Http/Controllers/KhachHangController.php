@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\KhachHang;
 use App\ToChuc;
 use App\User;
+use Auth, Hash;
+
 
 class KhachHangController extends Controller
 {
@@ -17,7 +19,9 @@ class KhachHangController extends Controller
 
     public function getThem()
     {
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         $user = User::all();
         return view('admin.khachhang.them', ['tochuc' => $tochuc, 'user' => $user]);
     }
@@ -59,7 +63,6 @@ class KhachHangController extends Controller
         $khachhang->gioitinh = $request->gioitinh;
         $khachhang->email = $request->email;
         $khachhang->idtc = $request->ToChuc;
-        $khachhang->idtk = $request->User;
         $khachhang->save();
         return redirect('admin/khachhang/danhsach')->with('thongbao', 'Thêm thành công');
     }
@@ -67,7 +70,9 @@ class KhachHangController extends Controller
     public function getSua($idkh)
     {
         $khachhang = KhachHang::find($idkh);
-        $tochuc = ToChuc::all();
+        $id = Auth::id();
+        $check_user = User::find($id);
+        $tochuc = ToChuc::where('id_user', $check_user->id)->first();
         $user = User::all();
         return view('admin.khachhang.sua', ['khachhang' => $khachhang, 'tochuc' => $tochuc, 'user' => $user]);
     }
@@ -108,7 +113,6 @@ class KhachHangController extends Controller
         $khachhang->gioitinh = $request->gioitinh;
         $khachhang->email = $request->email;
         $khachhang->idtc = $request->ToChuc;
-        $khachhang->idtk = $request->User;
         $khachhang->save();
         return redirect('admin/khachhang/danhsach')->with('thongbao', 'Sửa thành công');
     }

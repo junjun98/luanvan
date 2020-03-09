@@ -46,18 +46,24 @@
                   </label>
                 </th>
                 <th>ID</th>
-                <th>Tên đơn vị tính</th>
+                <th>Tên nhà cung cấp</th>
+                <th>Số tiền thu</th>
+                <th>Ngày trả</th>
                 <th>Tên tổ chức</th>
+                <th>Ghi chú</th>
                 <th style="width:30px;"></th>
               </tr>
             </thead>
             <tbody>
-              @foreach($donvitinh as $dvt)
+              @foreach($congnoncc as $cnncc)
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>{{$dvt->iddvt}}</td>
-                <td>{{$dvt->tendvt}}</td>
-                <td>{{$dvt->tochuc->tentc}}</td>
+                <td>{{$cnncc->idcnncc}}</td>
+                <td>{{$cnncc->tenncc}}</td>
+                <td>{{$cnncc->sotienthu}}</td>
+                <td>{{$cnncc->ngaytra}</td>
+                <td>{{$cnncc->tochuc->tentc}}</td>
+                <td>{{$cnncc->ghichu}}</td>
                 <td>
                   <a href="admin/donvitinh/sua/{{$dvt->iddvt}}" class="active styling-edit" ui-toggle-class="">
                     <i class="fa fa-pencil-square-o text-success text-active"></i>
