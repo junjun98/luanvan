@@ -73,7 +73,6 @@ class AdminController extends Controller
         {
             // return redirect()->back()->with(['flag'=>'success', 'thongbao'=>'Đăng nhập  thành công']);
             $id = Auth::id();
-            // echo $id;
             return redirect()->route('admin', $id);
         }
         else

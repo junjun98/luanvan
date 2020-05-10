@@ -21,6 +21,7 @@ Route::get('logout', ['as'=> 'logout', 'uses'=>'AdminController@logout']);
 Route::post('login', ['as'=> 'login', 'uses'=>'AdminController@postlogin']);
 Route::get('dangky', 'AdminController@dangky');
 Route::post('dangky', ['as'=> 'dangky', 'uses'=>'AdminController@postdangky']);
+Route::get('banhang', ['as'=> 'banhang', 'uses'=>'BanHangController@banhang']);
 
 Route::group(['prefix'=>'admin'],function()
 {
@@ -224,4 +225,6 @@ Route::group(['prefix'=>'admin'],function()
 		Route::post('sua/{idlh}','KhachHangController@postSua');
 		Route::get('xoa/{idkh}','KhachHangController@getXoa');
     });
+
+
 });
